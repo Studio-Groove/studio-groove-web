@@ -54,6 +54,11 @@
 
         .glow-orange { box-shadow: 0 0 25px rgba(255, 102, 0, 0.3); }
         .glow-green { box-shadow: 0 0 25px rgba(0, 255, 102, 0.25); }
+
+        /* Animação do Modal */
+        #product-modal { transition: opacity 0.2s ease-in-out; }
+        #product-modal.hidden { display: none; opacity: 0; }
+        #product-modal:not(.hidden) { display: flex; opacity: 1; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-[#FF6600] selection:text-white">
@@ -74,13 +79,13 @@
                 <a href="#flps" class="hover:text-[#FF6600] transition-colors">PROJECT FLPS</a>
             </nav>
 
-            <a href="https://groovibe-bio.vercel.app" class="text-xs font-mono font-bold px-3 py-1.5 rounded-lg border border-[#00FF66]/40 text-[#00FF66] hover:bg-[#00FF66]/10 transition-colors">
+            <a href="https://groovibe-bio.vercel.app" target="_blank" class="text-xs font-mono font-bold px-3 py-1.5 rounded-lg border border-[#00FF66]/40 text-[#00FF66] hover:bg-[#00FF66]/10 transition-colors">
                 ARTIST BIO &rarr;
             </a>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION DINÂMICA -->
     <section class="max-w-4xl mx-auto px-4 pt-12 pb-8 text-center space-y-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6600]/10 border border-[#FF6600]/30 text-[#FF6600] font-mono text-xs font-bold uppercase tracking-wider">
             <i class="fa-solid fa-bolt"></i> Esteira À La Carte • Ferramentas Sem Assinatura
@@ -134,9 +139,14 @@
                             <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 67<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
-                        <a href="https://pay.hotmart.com/COLOCAR_SEU_LINK_HOTMART" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
-                            COMPRAR AGORA &rarr;
-                        </a>
+                        <div class="flex gap-2">
+                            <button onclick="openModal('ttg')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
+                                COMPRAR &rarr;
+                            </a>
+                        </div>
                     </div>
                 </article>
 
@@ -165,9 +175,14 @@
                             <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 47<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
-                        <a href="https://pay.hotmart.com/COLOCAR_SEU_LINK_HOTMART" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-green">
-                            COMPRAR AGORA &rarr;
-                        </a>
+                        <div class="flex gap-2">
+                            <button onclick="openModal('vse')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-green">
+                                COMPRAR &rarr;
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -208,9 +223,14 @@
                             <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 97<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
-                        <a href="https://pay.hotmart.com/COLOCAR_SEU_LINK_HOTMART" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
-                            GARANTIR VAGA &rarr;
-                        </a>
+                        <div class="flex gap-2">
+                            <button onclick="openModal('destravando')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
+                                GARANTIR VAGA &rarr;
+                            </a>
+                        </div>
                     </div>
                 </article>
 
@@ -238,9 +258,14 @@
                             <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 197<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
-                        <a href="https://pay.hotmart.com/COLOCAR_SEU_LINK_HOTMART" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-green">
-                            DOMINAR O FL &rarr;
-                        </a>
+                        <div class="flex gap-2">
+                            <button onclick="openModal('fl')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-green">
+                                DOMINAR O FL &rarr;
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -265,7 +290,7 @@
                     </div>
                     <div class="pt-2 border-t border-zinc-800 flex items-center justify-between">
                         <span class="text-sm font-bold font-mono text-white">R$ 29,90</span>
-                        <a href="https://pay.hotmart.com/COLOCAR_LINK" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-[#FF6600] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
+                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-[#FF6600] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
                     </div>
                 </div>
 
@@ -278,7 +303,7 @@
                     </div>
                     <div class="pt-2 border-t border-zinc-800 flex items-center justify-between">
                         <span class="text-sm font-bold font-mono text-white">R$ 29,90</span>
-                        <a href="https://pay.hotmart.com/COLOCAR_LINK" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-[#00FF66] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
+                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-[#00FF66] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
                     </div>
                 </div>
 
@@ -291,7 +316,7 @@
                     </div>
                     <div class="pt-2 border-t border-zinc-800 flex items-center justify-between">
                         <span class="text-sm font-bold font-mono text-white">R$ 29,90</span>
-                        <a href="https://pay.hotmart.com/COLOCAR_LINK" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-amber-400 hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
+                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-amber-400 hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -337,5 +362,125 @@
         </div>
     </footer>
 
+    <!-- MODAL DE INSPEÇÃO TÉCNICA DINÂMICO -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="rack-card rounded-2xl max-w-lg w-full p-6 space-y-6 relative border-zinc-700">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content" class="space-y-4">
+                <!-- Conteúdo injetado via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTELIGÊNCIA DE ROTAS & MODAIS -->
+    <script>
+        const productsData = {
+            ttg: {
+                title: "PACK TTG (Timbre, Tone & Groove)",
+                badge: "BATERIA & SYNTHS",
+                badgeClass: "bg-[#FF6600]/20 text-[#FF6600] border-[#FF6600]/40",
+                price: "R$ 67,00",
+                desc: "Kit focado em One-Shots de bateria cortados para alta pressão de pista, permitindo que você construa grooves originais do zero sem depender de loops travados. Inclui timbres de sintetizadores e 12 presets para Serum 2 e Vital.",
+                specs: [
+                    "Formato: WAV 24-bit Royalty Free",
+                    "Conteúdo: Kick, Snare, Clap, Percs & Synths",
+                    "Presets: 12 Presets p/ Serum 2 & Vital",
+                    "Compatibilidade: Qualquer DAW (FL Studio, Ableton, Logic)"
+                ],
+                checkout: "https://pay.hotmart.com/"
+            },
+            vse: {
+                title: "VITAL SOUND ESSENCE (VSE)",
+                badge: "151 PRESETS VITAL",
+                badgeClass: "bg-[#00FF66]/20 text-[#00FF66] border-[#00FF66]/40",
+                price: "R$ 47,00",
+                desc: "151 presets prontos para mixar criados exclusivamente para o VST 100% gratuito Vital. Livre-se da necessidade de plugins pagos ou piratas e tenha acesso a timbres de Tech House, House e Techno.",
+                specs: [
+                    "151 Presets nativos (.vital)",
+                    "Categorias: Basslines, Synths, Plucks, Stabs & FX",
+                    "VST Base: Vital Freeware (Link de download incluso)",
+                    "Estilos: Tech House, House, Minimal Deep Tech"
+                ],
+                checkout: "https://pay.hotmart.com/"
+            },
+            destravando: {
+                title: "DESTRAVANDO TRACKS",
+                badge: "MASTERCLASS 4 ETAPAS",
+                badgeClass: "bg-[#FF6600]/20 text-[#FF6600] border-[#FF6600]/40",
+                price: "R$ 97,00",
+                desc: "Imersão prática dividida em 4 etapas diretas ao ponto. Acompanhe a criação de uma track autoral do zero absoluto até a entrega de uma master pronta para gravadoras e DJs.",
+                specs: [
+                    "Aula 1: Criação & Metodologia de Referência (~1h)",
+                    "Aula 2: Desenvolvimento de Arranjo sem Travamentos (~1h30)",
+                    "Aula 3: Mixagem Cirúrgica de Frequências (~1h)",
+                    "Aula 4: Masterização Comercial & Loudness (~1h)"
+                ],
+                checkout: "https://pay.hotmart.com/"
+            },
+            fl: {
+                title: "DOMINANDO O FL PARA E-MUSIC",
+                badge: "FORMAÇÃO COMPLETA",
+                badgeClass: "bg-[#00FF66]/20 text-[#00FF66] border-[#00FF66]/40",
+                price: "R$ 197,00",
+                desc: "O treinamento definitivo do básico ao avançado no FL Studio. Inclui mentoria de 30 minutos, o método 'As 4 Telas', configuração de template limpo, teoria descomplicada por sentimento e o workshop bônus 'Dominando a Mix' com FabFilter.",
+                specs: [
+                    "Mentoria inicial de alinhamento (30 min)",
+                    "Módulo 'As 4 Telas' + Template oficial de workflow",
+                    "Aulas curtas de 10 a 20 min focadas em cada elemento",
+                    "Bônus: Workshop 'Dominando a Mix' (FabFilter)",
+                    "Acesso vitalício + Atualizações"
+                ],
+                checkout: "https://pay.hotmart.com/"
+            }
+        };
+
+        function openModal(prodKey) {
+            const data = productsData[prodKey];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <span class="${data.badgeClass} font-mono text-[10px] font-black px-2.5 py-1 rounded-md border inline-block">
+                    ${data.badge}
+                </span>
+                <h3 class="text-2xl font-black text-white">${data.title}</h3>
+                <p class="text-xs text-zinc-300 leading-relaxed">${data.desc}</p>
+                
+                <div class="bg-black/50 p-4 rounded-xl border border-zinc-800 space-y-2">
+                    <p class="text-xs font-mono font-bold text-[#FF6600]">ESPECIFICAÇÕES TÉCNICAS:</p>
+                    <ul class="text-xs font-mono text-zinc-400 space-y-1">
+                        ${data.specs.map(spec => `<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-[#00FF66]"></i> ${spec}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] font-mono text-zinc-500 block uppercase">Preço Oficial</span>
+                        <span class="text-2xl font-black font-mono text-white">${data.price}</span>
+                    </div>
+                    <a href="${data.checkout}" target="_blank" class="px-6 py-3 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
+                        IR PARA O CHECKOUT &rarr;
+                    </a>
+                </div>
+            `;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // Auto-abertura de modal por parâmetro de URL (ex: ?prod=ttg ou ?prod=vse)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const prod = urlParams.get('prod');
+            if (prod && productsData[prod]) {
+                openModal(prod);
+            }
+        });
+    </script>
 </body>
 </html>

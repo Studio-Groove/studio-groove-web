@@ -300,7 +300,7 @@
         <p class="text-zinc-400">Tech House, House & Minimal Deep Tech Production Assets.</p>
     </footer>
 
-    <!-- CATÁLOGO OFICIAL -->
+    <!-- CATÁLOGO OFICIAL & SCRIPT DE ROTEAMENTO -->
     <script>
         const products = [
             {
@@ -447,7 +447,7 @@
                 ],
                 hotmartUrl: "https://go.hotmart.com/W107688253B"
             },
-            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO DA GRINGA PARA O BRASIL
+            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO DA GRINGA PARA O BRASIL (CANAL STUDIO GROOVE ATUALIZADO)
             {
                 id: "HZCT004",
                 type: "flp",
@@ -457,13 +457,13 @@
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT004.png",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
-                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Tube!",
+                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
                     "Aguardando liberação de checkout na Hotmart Brasil",
                     "Sessão completa de FL Studio + Stems WAV em 24-bit",
                     "Selo internacional Hertz Cartel com assinatura HZ"
                 ],
-                hotmartUrl: "https://youtube.com/@studiotube"
+                hotmartUrl: "https://youtube.com/@studiogroove?si=-yO36LT6euIEtxvr"
             },
             {
                 id: "HZCT006",
@@ -474,13 +474,13 @@
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT006.png",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
-                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Tube!",
+                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
                     "Aguardando liberação de checkout na Hotmart Brasil",
                     "Sessão completa de FL Studio + Stems WAV em 24-bit",
                     "Selo internacional Hertz Cartel com assinatura HZ"
                 ],
-                hotmartUrl: "https://youtube.com/@studiotube"
+                hotmartUrl: "https://youtube.com/@studiogroove?si=-yO36LT6euIEtxvr"
             },
             {
                 id: "HZCT007",
@@ -491,13 +491,13 @@
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT007.png",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
-                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Tube!",
+                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
                     "Aguardando liberação de checkout na Hotmart Brasil",
                     "Sessão completa de FL Studio + Stems WAV em 24-bit",
                     "Selo internacional Hertz Cartel com assinatura HZ"
                 ],
-                hotmartUrl: "https://youtube.com/@studiotube"
+                hotmartUrl: "https://youtube.com/@studiogroove?si=-yO36LT6euIEtxvr"
             },
             {
                 id: "HZCT008",
@@ -508,13 +508,13 @@
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT008.png",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
-                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Tube!",
+                fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
                     "Aguardando liberação de checkout na Hotmart Brasil",
                     "Sessão completa de FL Studio + Stems WAV em 24-bit",
                     "Selo internacional Hertz Cartel com assinatura HZ"
                 ],
-                hotmartUrl: "https://youtube.com/@studiotube"
+                hotmartUrl: "https://youtube.com/@studiogroove?si=-yO36LT6euIEtxvr"
             }
         ];
 
@@ -556,83 +556,69 @@
             }
 
             const benefitsContainer = document.getElementById('hero-benefits');
-            benefitsContainer.innerHTML = '';
-            if (product.benefits) {
-                product.benefits.forEach(b => {
-                    const item = document.createElement('div');
-                    item.className = 'flex items-center space-x-2 text-[#00FF66]';
-                    item.innerHTML = `<i class="fa-solid fa-square-check text-[#00FF66]"></i><span class="text-zinc-200">${b}</span>`;
-                    benefitsContainer.appendChild(item);
-                });
-            }
+            benefitsContainer.innerHTML = product.benefits.map(b => `
+                <div class="flex items-center space-x-2.5">
+                    <i class="fa-solid fa-check text-[#00FF66] shrink-0"></i>
+                    <span>${b}</span>
+                </div>
+            `).join('');
 
-            const btn = document.getElementById('hero-btn');
-            btn.href = product.hotmartUrl;
+            const heroBtn = document.getElementById('hero-btn');
+            heroBtn.href = product.hotmartUrl;
             if (product.isLocked) {
-                btn.className = "bg-amber-600 hover:bg-amber-500 text-white font-bold w-full sm:w-auto px-8 py-4 rounded-2xl flex items-center justify-center space-x-3 text-sm lg:text-base transition-all";
-                btn.innerHTML = `<i class="fa-brands fa-youtube text-lg"></i><span>AVISAR QUANDO LIBERAR (CANAL STUDIO TUBE)</span>`;
+                heroBtn.innerHTML = `<i class="fa-brands fa-youtube text-lg"></i> <span>QUERO SER AVISADO DO LANÇAMENTO</span>`;
             } else {
-                btn.className = "btn-fl-primary w-full sm:w-auto px-8 py-4 rounded-2xl flex items-center justify-center space-x-3 text-sm lg:text-base";
-                btn.innerHTML = `<i class="fa-solid fa-bolt text-lg"></i><span>QUERO GARANTIR ESTE ATIVO AGORA</span>`;
+                heroBtn.innerHTML = `<i class="fa-solid fa-bolt text-lg"></i> <span>QUERO GARANTIR ESTE ATIVO AGORA</span>`;
             }
         }
 
-        function renderAuxiliaryCards(activeHeroId) {
+        function renderAuxiliaryCards(currentId) {
             const container = document.getElementById('cards-container');
-            container.innerHTML = '';
+            container.innerHTML = "";
 
-            const otherProducts = products.filter(p => p.id !== activeHeroId);
+            products.forEach(product => {
+                if (product.id === currentId) return;
 
-            otherProducts.forEach(product => {
                 const card = document.createElement('div');
                 
                 if (product.isLocked) {
-                    card.className = 'glass-card-locked rounded-2xl p-4 flex flex-col justify-between space-y-4 group opacity-75 hover:opacity-100 transition-opacity';
+                    card.className = "glass-card-locked rounded-2xl p-5 flex flex-col justify-between space-y-4 cursor-pointer relative group overflow-hidden";
+                    card.onclick = () => openModal(product.id);
                     card.innerHTML = `
-                        <div class="space-y-3">
-                            <div class="relative aspect-square w-full rounded-xl overflow-hidden border border-zinc-800/80">
-                                <img src="${product.imageUrl}" alt="${product.title}" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-300">
-                                <span class="absolute top-2 left-2 text-[10px] font-mono bg-black/90 text-amber-400 px-2 py-0.5 rounded border border-amber-500/40 font-bold backdrop-blur-sm flex items-center gap-1">
-                                    <i class="fa-solid fa-lock text-[9px]"></i> EM BREVE
-                                </span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-zinc-300 group-hover:text-amber-400 transition-colors leading-snug line-clamp-1">${product.title}</h3>
-                                <span class="text-xs font-mono font-bold text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-500/30">EM BREVE</span>
-                            </div>
-                            <p class="text-xs text-zinc-500 line-clamp-2 leading-relaxed">${product.headline}</p>
+                        <div class="absolute top-3 right-3 bg-amber-500/10 text-amber-400 border border-amber-500/30 text-[10px] font-mono px-2 py-0.5 rounded font-bold">
+                            <i class="fa-solid fa-lock"></i> EM BREVE
                         </div>
-                        <div class="pt-2 border-t border-zinc-800/80 flex items-center space-x-2">
-                            <button onclick="openModal('${product.id}')" class="flex-grow bg-[#07080B] hover:bg-zinc-800 text-zinc-300 font-mono py-2 px-3 rounded-xl text-xs transition-colors text-center border border-zinc-800 flex items-center justify-center gap-1.5">
-                                <span>VER DETALHES</span> <i class="fa-solid fa-lock text-[10px] text-amber-400"></i>
-                            </button>
+                        <div class="space-y-3">
+                            <div class="aspect-square w-full rounded-xl overflow-hidden border border-zinc-800 relative">
+                                <img src="${product.imageUrl}" alt="${product.title}" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                            </div>
+                            <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">${product.category}</span>
+                            <h4 class="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors line-clamp-2">${product.title}</h4>
+                            <p class="text-xs text-zinc-500 line-clamp-2">${product.headline}</p>
+                        </div>
+                        <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                            <span class="text-xs font-mono font-bold text-amber-500">INDISPONÍVEL</span>
+                            <span class="text-xs font-mono text-zinc-400 group-hover:text-white flex items-center gap-1">VER DETALHES <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                         </div>
                     `;
                 } else {
-                    card.className = 'glass-card rounded-2xl p-4 flex flex-col justify-between space-y-4 group';
+                    card.className = "glass-card rounded-2xl p-5 flex flex-col justify-between space-y-4 cursor-pointer group";
+                    card.onclick = () => openModal(product.id);
                     card.innerHTML = `
                         <div class="space-y-3">
-                            <div class="relative aspect-square w-full rounded-xl overflow-hidden border border-zinc-800">
+                            <div class="aspect-square w-full rounded-xl overflow-hidden border border-zinc-800/80 relative">
                                 <img src="${product.imageUrl}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <span class="absolute top-2 left-2 text-[10px] font-mono bg-black/80 text-[#FF6600] px-2 py-0.5 rounded border border-[#FF6600]/40 font-bold backdrop-blur-sm">${product.category}</span>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-sm font-bold text-white group-hover:text-[#FF6600] transition-colors leading-snug line-clamp-1">${product.title}</h3>
-                                <span class="text-sm font-mono font-bold text-white">${product.price}</span>
-                            </div>
-                            <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">${product.headline}</p>
+                            <span class="text-[10px] font-mono text-[#FF6600] uppercase tracking-widest block">${product.category}</span>
+                            <h4 class="text-sm font-bold text-white group-hover:text-[#FF6600] transition-colors line-clamp-2">${product.title}</h4>
+                            <p class="text-xs text-zinc-400 line-clamp-2">${product.headline}</p>
                         </div>
-                        <div class="pt-2 border-t border-zinc-800/80 flex items-center space-x-2">
-                            <button onclick="openModal('${product.id}')" class="flex-grow bg-[#07080B] hover:bg-zinc-800 text-zinc-200 font-mono py-2 px-3 rounded-xl text-xs transition-colors text-center border border-zinc-800">
-                                DETALHES <i class="fa-solid fa-sliders text-[10px] ml-1 text-[#FF6600]"></i>
-                            </button>
-                            <a href="${product.hotmartUrl}" target="_blank" class="btn-vu-green py-2 px-3.5 rounded-xl text-xs flex items-center justify-center font-bold" title="Garantir Acesso">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
+                        <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                            <span class="text-base font-mono font-black text-[#FF6600]">${product.price}</span>
+                            <span class="text-xs font-mono text-zinc-400 group-hover:text-[#00FF66] flex items-center gap-1 transition-colors">VER DETALHES <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                         </div>
                     `;
                 }
-
                 container.appendChild(card);
             });
         }
@@ -641,44 +627,37 @@
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
+            document.getElementById('modal-image').src = product.imageUrl;
             document.getElementById('modal-category').innerText = product.category;
             document.getElementById('modal-title').innerText = product.title;
             document.getElementById('modal-price').innerText = product.price;
             document.getElementById('modal-desc').innerText = product.fullDesc;
-            document.getElementById('modal-image').src = product.imageUrl;
 
-            const badge = document.getElementById('modal-overlay-badge');
+            const overlayBadge = document.getElementById('modal-overlay-badge');
             const guaranteeText = document.getElementById('modal-guarantee-text');
+            const checkoutBtn = document.getElementById('modal-checkout-btn');
 
             if (product.isLocked) {
-                badge.classList.remove('hidden');
-                guaranteeText.innerHTML = `<i class="fa-solid fa-clock text-amber-400"></i> Lançamento em breve no ecossistema Brasil`;
+                overlayBadge.classList.remove('hidden');
+                guaranteeText.innerHTML = `<i class="fa-solid fa-bell text-amber-400"></i> Lançamento em breve no canal do YouTube`;
+                checkoutBtn.href = product.hotmartUrl;
+                checkoutBtn.className = "btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2 bg-gradient-to-r from-red-600 to-red-700";
+                checkoutBtn.innerHTML = `<i class="fa-brands fa-youtube text-xs"></i> <span>AVISAR NO CANAL DO YOUTUBE</span>`;
             } else {
-                badge.classList.add('hidden');
-                guaranteeText.innerHTML = `<i class="fa-solid fa-shield-check text-[#00FF66]"></i> 7 Dias de Garantia Incondicional`;
+                overlayBadge.classList.add('hidden');
+                guaranteeText.innerHTML = `<i class="fa-solid fa-shield-check text-[#00FF66]"></i> 7 Dias de Garantia Incondicional (Hotmart)`;
+                checkoutBtn.href = product.hotmartUrl;
+                checkoutBtn.className = "btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2";
+                checkoutBtn.innerHTML = `<i class="fa-solid fa-lock text-xs"></i> <span>LIBERAR MEU ACESSO IMEDIATO</span>`;
             }
 
-            const modalBullets = document.getElementById('modal-bullets');
-            modalBullets.innerHTML = '';
-            if (product.benefits) {
-                product.benefits.forEach(b => {
-                    const item = document.createElement('div');
-                    item.className = 'flex items-center space-x-2 text-[#00FF66]';
-                    item.innerHTML = `<i class="fa-solid fa-check text-[#00FF66]"></i><span class="text-zinc-200">${b}</span>`;
-                    modalBullets.appendChild(item);
-                });
-            }
-
-            const btn = document.getElementById('modal-checkout-btn');
-            btn.href = product.hotmartUrl;
-            
-            if (product.isLocked) {
-                btn.className = "bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2";
-                btn.innerHTML = `<i class="fa-brands fa-youtube text-sm"></i><span>ACOMPANHAR NO YOUTUBE</span>`;
-            } else {
-                btn.className = "btn-fl-primary px6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2";
-                btn.innerHTML = `<i class="fa-solid fa-lock text-xs"></i><span>LIBERAR MEU ACESSO IMEDIATO</span>`;
-            }
+            const bulletsContainer = document.getElementById('modal-bullets');
+            bulletsContainer.innerHTML = product.benefits.map(b => `
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-check text-[#00FF66]"></i>
+                    <span>${b}</span>
+                </div>
+            `).join('');
 
             document.getElementById('product-modal').classList.remove('hidden');
         }
@@ -687,7 +666,7 @@
             document.getElementById('product-modal').classList.add('hidden');
         }
 
-        window.onload = initApp;
+        window.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
 </html>

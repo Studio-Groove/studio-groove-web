@@ -32,30 +32,29 @@
             background-color: var(--daw-bg);
             color: #f4f4f5;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 32px 32px;
         }
 
         .font-mono { font-family: 'JetBrains Mono', monospace; }
 
         .rack-card {
-            background: rgba(14, 16, 23, 0.95);
+            background: rgba(14, 16, 23, 0.9);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .rack-card:hover {
-            border-color: rgba(255, 102, 0, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px -10px rgba(255, 102, 0, 0.2);
+            border-color: rgba(255, 102, 0, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(255, 102, 0, 0.25);
         }
 
         .glow-orange { box-shadow: 0 0 25px rgba(255, 102, 0, 0.3); }
-        .glow-green { box-shadow: 0 0 25px rgba(0, 255, 102, 0.25); }
+        .glow-green { box-shadow: 0 0 25px rgba(0, 255, 102, 0.3); }
 
-        /* Animação do Modal */
         #product-modal { transition: opacity 0.2s ease-in-out; }
         #product-modal.hidden { display: none; opacity: 0; }
         #product-modal:not(.hidden) { display: flex; opacity: 1; }
@@ -65,10 +64,12 @@
 
     <!-- NAVBAR NAVEGAÇÃO -->
     <header class="w-full border-b border-zinc-800/80 bg-[#07080B]/90 backdrop-blur sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="#" class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-lg bg-[#FF6600] flex items-center justify-center text-black font-black text-lg">
-                    <i class="fa-solid fa-sliders"></i>
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#FF6600] to-amber-500 p-[2px] shadow-lg shadow-[#FF6600]/20">
+                    <div class="w-full h-full bg-[#0E1017] rounded-[10px] flex items-center justify-center text-[#FF6600]">
+                        <i class="fa-solid fa-sliders text-sm"></i>
+                    </div>
                 </div>
                 <span class="font-black tracking-tight text-white text-lg sm:text-xl font-mono">STUDIO<span class="text-[#FF6600]">GROOVE</span></span>
             </a>
@@ -79,108 +80,108 @@
                 <a href="#flps" class="hover:text-[#FF6600] transition-colors">PROJECT FLPS</a>
             </nav>
 
-            <a href="https://groovibe-bio.vercel.app" target="_blank" class="text-xs font-mono font-bold px-3 py-1.5 rounded-lg border border-[#00FF66]/40 text-[#00FF66] hover:bg-[#00FF66]/10 transition-colors">
+            <a href="https://groovibe-bio.vercel.app" target="_blank" class="text-xs font-mono font-bold px-3.5 py-2 rounded-xl border border-[#00FF66]/40 text-[#00FF66] hover:bg-[#00FF66]/10 transition-colors">
                 ARTIST BIO &rarr;
             </a>
         </div>
     </header>
 
-    <!-- HERO SECTION DINÂMICA -->
-    <section class="max-w-4xl mx-auto px-4 pt-12 pb-8 text-center space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6600]/10 border border-[#FF6600]/30 text-[#FF6600] font-mono text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-bolt"></i> Esteira À La Carte • Ferramentas Sem Assinatura
+    <!-- HERO SECTION -->
+    <section class="max-w-4xl mx-auto px-4 pt-16 pb-10 text-center space-y-5">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF6600]/10 border border-[#FF6600]/30 text-[#FF6600] font-mono text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-bolt"></i> Sistema À La Carte • Sem Mensalidade
         </div>
         <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-            CHEGA DE MÚSICAS TRAVADAS NO LOOP.<br>
+            FERRAMENTAS DE ALTA PRESSÃO PARA <br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6600] via-amber-400 to-[#00FF66]">
-                CRIE GROOVES DE PISTA E ASSINE COM GRAVADORAS.
+                PRODUTORES DE TECH HOUSE & E-MUSIC
             </span>
         </h1>
         <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Preserve a sua liberdade criativa. Baixe elementos soltos de alta pressão (One-Shots, Presets Vital/Serum, Stems) ou domine o método de produção do zero até a masterização.
+            Tenha acesso direto a sample packs, presets de VSTs, projetos FLP abertos e masterclasses práticas para destravar suas tracks e enviar para gravadoras.
         </p>
     </section>
 
-    <!-- CONTAINER PRINCIPAL DOS PRODUTOS -->
+    <!-- CONTAINER PRINCIPAL -->
     <main class="max-w-6xl mx-auto px-4 py-8 space-y-16 w-full">
 
         <!-- SEÇÃO 1: PACKS E PRESETS -->
         <section id="packs" class="space-y-6">
             <div class="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h2 class="text-lg font-black font-mono text-white flex items-center gap-2">
-                    <i class="fa-solid fa-drum text-[#FF6600]"></i> 01. PACKS & ARSENAL DE TIMBRES
+                <h2 class="text-sm font-black font-mono text-zinc-300 uppercase tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-drum text-[#FF6600]"></i> 01. Pack de Bateria, Timbres & Presets
                 </h2>
-                <span class="text-xs font-mono text-zinc-500 uppercase">Pronto para Drag & Drop</span>
+                <span class="text-xs font-mono text-zinc-500">Drag & Drop</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- PACK 1: TTG PACK -->
-                <article class="rack-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                <!-- PACK TTG -->
+                <article class="rack-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="bg-[#FF6600]/20 text-[#FF6600] font-mono text-[10px] font-black px-2.5 py-1 rounded-md border border-[#FF6600]/40">
-                                BATERIA & SYNTHS
+                            <span class="bg-[#FF6600]/20 text-[#FF6600] font-mono text-[10px] font-black px-3 py-1 rounded-full border border-[#FF6600]/40 uppercase tracking-wider">
+                                Bateria & Synths
                             </span>
                             <span class="text-xs font-mono text-zinc-400">One-Shots & Presets</span>
                         </div>
-                        <h3 class="text-2xl font-black text-white">PACK TTG (Timbre, Tone & Groove)</h3>
-                        <p class="text-xs text-zinc-300 leading-relaxed">
-                            O kit essencial focado em **One-Shots de bateria** de alta pressão para você desenhar seus próprios grooves sem ficar refém de loops pré-fabricados. Acompanha timbres marcantes de sintetizadores e **12 presets matadores para VST Serum 2 e Vital**.
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Pack TTG (Timbre, Tone & Groove)</h3>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                            Foco total em **One-Shots de bateria** robustos e cortados para a pista. Dê adeus aos loops engessados e crie seus próprios grooves do zero. Acompanha timbres marcantes de sintetizadores e **12 presets matadores para Serum 2 e Vital**.
                         </p>
-                        <ul class="text-xs font-mono text-zinc-400 space-y-1.5 border-t border-zinc-800/80 pt-3">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#00FF66]"></i> Kick, Snare, Clap e Percs cortadas para pista</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#00FF66]"></i> Liberdade total de criação para arranjos originais</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#00FF66]"></i> Presets exclusivos de Serum 2 & Vital embutidos</li>
+                        <ul class="text-xs font-mono text-zinc-400 space-y-2 border-t border-zinc-800/80 pt-4">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-[#00FF66]"></i> Kicks, snares, claps e percs de alta pressão</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-[#00FF66]"></i> Liberdade criativa total para arranjos originais</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-[#00FF66]"></i> Presets exclusivos para Serum 2 e Vital</li>
                         </ul>
                     </div>
 
-                    <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
+                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Valor Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 67<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="openModal('ttg')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                            <button onclick="openModal('ttg')" class="px-3.5 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors" title="Ver Detalhes">
                                 <i class="fa-solid fa-circle-info"></i>
                             </button>
-                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
-                                COMPRAR &rarr;
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-3 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-extrabold text-xs text-black transition-all font-mono uppercase tracking-wider glow-orange">
+                                ADQUIRIR &rarr;
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- PACK 2: VITAL SOUND ESSENCE -->
-                <article class="rack-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                <!-- VITAL SOUND ESSENCE -->
+                <article class="rack-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="bg-[#00FF66]/20 text-[#00FF66] font-mono text-[10px] font-black px-2.5 py-1 rounded-md border border-[#00FF66]/40">
-                                151 PRESETS
+                            <span class="bg-[#00FF66]/20 text-[#00FF66] font-mono text-[10px] font-black px-3 py-1 rounded-full border border-[#00FF66]/40 uppercase tracking-wider">
+                                151 Presets
                             </span>
-                            <span class="text-xs font-mono text-zinc-400">VST Vital (100% Gratuito)</span>
+                            <span class="text-xs font-mono text-zinc-400">VST Vital (Grátis)</span>
                         </div>
-                        <h3 class="text-2xl font-black text-white">VITAL SOUND ESSENCE (VSE)</h3>
-                        <p class="text-xs text-zinc-300 leading-relaxed">
-                            Zero barreiras. **151 presets de alta performance** projetados exclusivamente para o VST freeware Vital. Basslines cavadas, Synths rasgados, Plucks com ataque e Stabs perfeitos para Tech House, House e Techno.
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Vital Sound Essence (VSE)</h3>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                            Zero barreiras de sintetizadores caros ou piratas. **151 presets de alta performance** desenhados exclusivamente para o VST freeware Vital. Basslines cavadas, synths cortantes e stabs prontos para Tech House e Techno.
                         </p>
-                        <ul class="text-xs font-mono text-zinc-400 space-y-1.5 border-t border-zinc-800/80 pt-3">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#00FF66]"></i> Não exige sintetizadores pagos ou piratas</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#00FF66]"></i> Timbres pré-mixados com resposta de frequência limpa</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#00FF66]"></i> Cobertura completa: Bass, Synth, Pluck, Stab & FX</li>
+                        <ul class="text-xs font-mono text-zinc-400 space-y-2 border-t border-zinc-800/80 pt-4">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-[#00FF66]"></i> Compatível com a versão gratuita do Vital</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-[#00FF66]"></i> Timbres pré-mixados com resposta limpa</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-[#00FF66]"></i> Bass, Synths, Plucks, Stabs e Efeitos</li>
                         </ul>
                     </div>
 
-                    <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
+                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Valor Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 47<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="openModal('vse')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                            <button onclick="openModal('vse')" class="px-3.5 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors" title="Ver Detalhes">
                                 <i class="fa-solid fa-circle-info"></i>
                             </button>
-                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-green">
-                                COMPRAR &rarr;
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-3 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-extrabold text-xs text-black transition-all font-mono uppercase tracking-wider glow-green">
+                                ADQUIRIR &rarr;
                             </a>
                         </div>
                     </div>
@@ -191,79 +192,80 @@
         <!-- SEÇÃO 2: MASTERCLASSES E CURSOS -->
         <section id="cursos" class="space-y-6">
             <div class="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h2 class="text-lg font-black font-mono text-white flex items-center gap-2">
-                    <i class="fa-solid fa-graduation-cap text-[#FF6600]"></i> 02. MASTERCLASSES & TREINAMENTOS
+                <h2 class="text-sm font-black font-mono text-zinc-300 uppercase tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-[#FF6600]"></i> 02. Masterclasses & Treinamentos Práticos
                 </h2>
-                <span class="text-xs font-mono text-zinc-500 uppercase">Metodologia Prática de Estúdio</span>
+                <span class="text-xs font-mono text-zinc-500">Metodologia Real</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- WORKSHOP: DESTRAVANDO TRACKS -->
-                <article class="rack-card rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                <!-- DESTRAVANDO TRACKS -->
+                <article class="rack-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="bg-[#FF6600]/20 text-[#FF6600] font-mono text-[10px] font-black px-2.5 py-1 rounded-md border border-[#FF6600]/40">
-                                MASTERCLASS 4 ETAPAS
+                            <span class="bg-[#FF6600]/20 text-[#FF6600] font-mono text-[10px] font-black px-3 py-1 rounded-full border border-[#FF6600]/40 uppercase tracking-wider">
+                                Imersão 4 Etapas
                             </span>
-                            <span class="text-xs font-mono text-zinc-400">Imersão de Finalização</span>
+                            <span class="text-xs font-mono text-zinc-400">Finalização de Pista</span>
                         </div>
-                        <h3 class="text-2xl font-black text-white">DESTRAVANDO TRACKS</h3>
-                        <p class="text-xs text-zinc-300 leading-relaxed">
-                            O método intensivo para você sair do zero e entregar uma track **pronta para gravadoras e promos de DJs**. Dividido em 4 aulas diretas ao ponto: Criação, Arranjo sem travamentos, Mixagem de peso e Masterização comercial.
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Destravando Tracks</h3>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                            O workshop definitivo para eliminar o bloqueio criativo. Aprenda o processo completo de ponta a ponta: da criação inicial, passando pelo arranjo de pista, até a mix e master para envio de demos a gravadoras.
                         </p>
-                        <div class="bg-black/40 p-3 rounded-xl border border-zinc-800 text-xs font-mono text-zinc-300 space-y-1">
-                            <p class="text-[#FF6600] font-bold">🎯 Fases da Imersão:</p>
-                            <p>1. Criação Guiada do Zero • 2. Arranjo de Pista</p>
-                            <p>3. Mixagem de Frequências • 4. Master Loudness</p>
+                        <div class="bg-black/40 p-3.5 rounded-xl border border-zinc-800 text-xs font-mono text-zinc-300 space-y-1.5">
+                            <p class="text-[#FF6600] font-bold">🎯 Estrutura das Aulas:</p>
+                            <p>• Aula 1: Criação Guiada do Zero</p>
+                            <p>• Aula 2: Desenvolvimento de Arranjo</p>
+                            <p>• Aula 3 & 4: Mixagem Cirúrgica & Master Loudness</p>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
+                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Valor Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 97<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="openModal('destravando')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                            <button onclick="openModal('destravando')" class="px-3.5 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors" title="Ver Detalhes">
                                 <i class="fa-solid fa-circle-info"></i>
                             </button>
-                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-3 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-extrabold text-xs text-black transition-all font-mono uppercase tracking-wider glow-orange">
                                 GARANTIR VAGA &rarr;
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- CURSO CORE: DOMINANDO O FL PARA E-MUSIC -->
-                <article class="rack-card rounded-2xl p-6 flex flex-col justify-between space-y-6 border-l-4 border-l-[#00FF66]">
+                <!-- DOMINANDO O FL PARA E-MUSIC -->
+                <article class="rack-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6 border-l-4 border-l-[#00FF66]">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="bg-[#00FF66]/20 text-[#00FF66] font-mono text-[10px] font-black px-2.5 py-1 rounded-md border border-[#00FF66]/40">
-                                FORMAÇÃO COMPLETA
+                            <span class="bg-[#00FF66]/20 text-[#00FF66] font-mono text-[10px] font-black px-3 py-1 rounded-full border border-[#00FF66]/40 uppercase tracking-wider">
+                                Formação Completa
                             </span>
                             <span class="text-xs font-mono text-zinc-400">Do Básico ao Avançado</span>
                         </div>
-                        <h3 class="text-2xl font-black text-white">DOMINANDO O FL PARA E-MUSIC</h3>
-                        <p class="text-xs text-zinc-300 leading-relaxed">
-                            A bíblia definitiva de produção no FL Studio. Inclui mentoria inicial de 30 minutos, o módulo **"As 4 Telas"**, template otimizado de workflow, teoria musical baseada em sentimento e aulas curtas de 10 a 20 minutos por elemento.
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Dominando o FL para E-Music</h3>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                            A bíblia definitiva no FL Studio. Inclui mentoria inicial, o módulo exclusivo **"As 4 Telas"**, template de workflow ágil, teoria musical baseada em sentimento e aulas práticas em pílulas dinâmicas.
                         </p>
-                        <div class="bg-black/40 p-3 rounded-xl border border-zinc-800 text-xs font-mono text-zinc-300 space-y-1">
-                            <p class="text-[#00FF66] font-bold">⭐ Bônus Exclusivo Incluso:</p>
-                            <p>Workshop Raiz "Dominando a Mix" focado na suíte **FabFilter** + Construção Prática Completa de Track Autoral.</p>
+                        <div class="bg-black/40 p-3.5 rounded-xl border border-zinc-800 text-xs font-mono text-zinc-300 space-y-1.5">
+                            <p class="text-[#00FF66] font-bold">⭐ Bônus Exclusivo:</p>
+                            <p>Workshop Raiz "Dominando a Mix" com a suíte **FabFilter** + Criação prática completa de track autoral.</p>
                         </div>
                     </div>
 
-                    <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
                         <div>
-                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Investimento Único</span>
+                            <span class="text-[10px] font-mono text-zinc-500 block uppercase">Valor Único</span>
                             <span class="text-2xl font-black font-mono text-white">R$ 197<span class="text-xs text-zinc-400">,00</span></span>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="openModal('fl')" class="px-3 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors">
+                            <button onclick="openModal('fl')" class="px-3.5 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-mono text-zinc-300 transition-colors" title="Ver Detalhes">
                                 <i class="fa-solid fa-circle-info"></i>
                             </button>
-                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-green">
-                                DOMINAR O FL &rarr;
+                            <a href="https://pay.hotmart.com/" target="_blank" class="px-5 py-3 rounded-xl bg-[#00FF66] hover:bg-emerald-400 font-extrabold text-xs text-black transition-all font-mono uppercase tracking-wider glow-green">
+                                QUERO DOMINAR &rarr;
                             </a>
                         </div>
                     </div>
@@ -274,79 +276,79 @@
         <!-- SEÇÃO 3: PROJETOS FLP HERTZ CARTEL -->
         <section id="flps" class="space-y-6">
             <div class="border-b border-zinc-800 pb-3 flex items-center justify-between">
-                <h2 class="text-lg font-black font-mono text-white flex items-center gap-2">
-                    <i class="fa-solid fa-folder-open text-[#FF6600]"></i> 03. PROJETOS FLP (HERTZ CARTEL / GUMROAD)
+                <h2 class="text-sm font-black font-mono text-zinc-300 uppercase tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-folder-open text-[#FF6600]"></i> 03. Projetos FLP (Hertz Cartel / HZCT 001 - 008)
                 </h2>
-                <span class="text-xs font-mono text-zinc-500 uppercase">Engenharia Reversa de Pista</span>
+                <span class="text-xs font-mono text-zinc-500 uppercase">Engenharia Reversa</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- FLP HZCT 001 -->
-                <div class="rack-card rounded-xl p-4 flex flex-col justify-between space-y-4">
+                <!-- HZCT 001 -->
+                <div class="rack-card rounded-xl p-5 flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
-                        <span class="text-[10px] font-mono text-[#FF6600] font-bold">HZCT 001 • TECH HOUSE</span>
+                        <span class="text-[10px] font-mono text-[#FF6600] font-bold uppercase tracking-wider">HZCT 001 • Tech House</span>
                         <h4 class="text-base font-bold text-white">Minimal Tech Groove Project</h4>
-                        <p class="text-[11px] text-zinc-400">Projeto aberto no FL 25.2. Acompanha Samples, MIDIs, Stems WAV e Manual PT/EN.</p>
+                        <p class="text-xs text-zinc-400">FL Studio 25.2. Acompanha Samples compactados, MIDIs, Stems WAV e Manual PT/EN.</p>
                     </div>
-                    <div class="pt-2 border-t border-zinc-800 flex items-center justify-between">
-                        <span class="text-sm font-bold font-mono text-white">R$ 29,90</span>
-                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-[#FF6600] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
+                    <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                        <span class="text-base font-bold font-mono text-white">R$ 29,90</span>
+                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-[#FF6600] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
                     </div>
                 </div>
 
-                <!-- FLP HZCT 002 -->
-                <div class="rack-card rounded-xl p-4 flex flex-col justify-between space-y-4">
+                <!-- HZCT 002 -->
+                <div class="rack-card rounded-xl p-5 flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
-                        <span class="text-[10px] font-mono text-[#00FF66] font-bold">HZCT 002 • AFRO HOUSE</span>
+                        <span class="text-[10px] font-mono text-[#00FF66] font-bold uppercase tracking-wider">HZCT 002 • Afro House</span>
                         <h4 class="text-base font-bold text-white">Tribal Sunset Anthem FLP</h4>
-                        <p class="text-[11px] text-zinc-400">Percursões orgânicas, sintetizadores abertos e estrutura 100% Royalty Free.</p>
+                        <p class="text-xs text-zinc-400">Percussões orgânicas, synths abertos e estrutura royalty free pronta para uso.</p>
                     </div>
-                    <div class="pt-2 border-t border-zinc-800 flex items-center justify-between">
-                        <span class="text-sm font-bold font-mono text-white">R$ 29,90</span>
-                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-[#00FF66] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
+                    <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                        <span class="text-base font-bold font-mono text-white">R$ 29,90</span>
+                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-[#00FF66] hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
                     </div>
                 </div>
 
-                <!-- FLP HZCT 003 -->
-                <div class="rack-card rounded-xl p-4 flex flex-col justify-between space-y-4">
+                <!-- HZCT 003 -->
+                <div class="rack-card rounded-xl p-5 flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
-                        <span class="text-[10px] font-mono text-amber-400 font-bold">HZCT 003 • INDIE DANCE</span>
+                        <span class="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">HZCT 003 • Indie Dance</span>
                         <h4 class="text-base font-bold text-white">Retro Synthesizer Project</h4>
-                        <p class="text-[11px] text-zinc-400">Arpejos marcantes e basslines oitavadas. Funciona em qualquer DAW via Stems WAV.</p>
+                        <p class="text-xs text-zinc-400">Arpejos marcantes e basslines oitavadas. Funciona em qualquer DAW via stems.</p>
                     </div>
-                    <div class="pt-2 border-t border-zinc-800 flex items-center justify-between">
-                        <span class="text-sm font-bold font-mono text-white">R$ 29,90</span>
-                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-amber-400 hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
+                    <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between">
+                        <span class="text-base font-bold font-mono text-white">R$ 29,90</span>
+                        <a href="https://pay.hotmart.com/" target="_blank" class="px-3.5 py-2 rounded-lg bg-zinc-800 hover:bg-amber-400 hover:text-black text-xs font-mono font-bold transition-colors">BAIXAR &rarr;</a>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD PRODUTOS EM BREVE (LABEL HERTZ CARTEL HZCT 004 A 008) -->
-            <div class="rack-card rounded-2xl p-6 border-dashed border-zinc-700 bg-zinc-950/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <!-- PRODUTOS EM BREVE (LINK CORRIGIDO PARA O CANAL STUDIO GROOVE) -->
+            <div class="rack-card rounded-2xl p-6 sm:p-8 border-dashed border-zinc-700 bg-zinc-950/60 flex flex-col sm:flex-row items-center justify-between gap-5">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 text-xl">
+                    <div class="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 text-xl shrink-0">
                         <i class="fa-solid fa-lock"></i>
                     </div>
                     <div>
-                        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Próximos Drops Hertz Cartel (HZCT 004 a HZCT 008)</span>
-                        <h4 class="text-base font-bold text-white">Novos Projetos FLP em Fase de Importação</h4>
-                        <p class="text-xs text-zinc-400">Inscreva-se no canal oficial para ser avisado primeiro no lançamento.</p>
+                        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">Próximos Drops Hertz Cartel (HZCT 004 a HZCT 008)</span>
+                        <h4 class="text-base font-bold text-white">Projetos FLP em Fase de Importação</h4>
+                        <p class="text-xs text-zinc-400">Inscreva-se no canal oficial Studio Groove para ser avisado primeiro.</p>
                     </div>
                 </div>
-                <a href="https://youtube.com/@studiogroove?si=nYZanZagSrcQWsIM" target="_blank" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-mono text-xs font-bold transition-colors flex items-center gap-2 whitespace-nowrap">
+                <a href="https://youtube.com/@studiogroove?si=nYZanZagSrcQWsIM" target="_blank" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-mono text-xs font-bold transition-colors flex items-center gap-2 whitespace-nowrap shadow-lg shadow-red-600/20">
                     <i class="fa-brands fa-youtube"></i> AVISAR NO CANAL &rarr;
                 </a>
             </div>
         </section>
 
-        <!-- SEÇÃO GARANTIA E TRUST -->
-        <section class="rack-card rounded-2xl p-8 border border-zinc-800 text-center space-y-4 max-w-3xl mx-auto">
-            <div class="w-12 h-12 rounded-full bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/30 flex items-center justify-center mx-auto text-xl">
+        <!-- GARANTIA -->
+        <section class="rack-card rounded-2xl p-8 border border-zinc-800 text-center space-y-3 max-w-2xl mx-auto">
+            <div class="w-10 h-10 rounded-full bg-[#00FF66]/10 text-[#00FF66] border border-[#00FF66]/30 flex items-center justify-center mx-auto text-lg">
                 <i class="fa-solid fa-shield-halved"></i>
             </div>
-            <h3 class="text-xl font-black text-white">GARANTIA INCONDICIONAL DE 7 DIAS</h3>
-            <p class="text-xs text-zinc-300 leading-relaxed max-w-xl mx-auto">
-                Teste qualquer pack, preset ou masterclass. Se você achar que o material não elevou a qualidade do seu som ou não acelerou seu workflow no estúdio, devolvemos 100% do seu dinheiro via Hotmart. Sem letras miúdas.
+            <h3 class="text-base font-black text-white uppercase tracking-wider">Garantia Incondicional de 7 Dias</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+                Teste qualquer pack ou curso no seu estúdio. Se o material não elevar a qualidade das suas tracks, devolvemos 100% do seu investimento via Hotmart de forma imediata.
             </p>
         </section>
 
@@ -362,19 +364,19 @@
         </div>
     </footer>
 
-    <!-- MODAL DE INSPEÇÃO TÉCNICA DINÂMICO -->
+    <!-- MODAL DE INSPEÇÃO TÉCNICA -->
     <div id="product-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
         <div class="rack-card rounded-2xl max-w-lg w-full p-6 space-y-6 relative border-zinc-700">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-lg">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div id="modal-content" class="space-y-4">
-                <!-- Conteúdo injetado via JavaScript -->
+                <!-- Conteúdo injetado via JS -->
             </div>
         </div>
     </div>
 
-    <!-- SCRIPT DE INTELIGÊNCIA DE ROTAS & MODAIS -->
+    <!-- SCRIPT DE MODAIS -->
     <script>
         const productsData = {
             ttg: {
@@ -424,7 +426,7 @@
                 badge: "FORMAÇÃO COMPLETA",
                 badgeClass: "bg-[#00FF66]/20 text-[#00FF66] border-[#00FF66]/40",
                 price: "R$ 197,00",
-                desc: "O treinamento definitivo do básico ao avançado no FL Studio. Inclui mentoria de 30 minutos, o método 'As 4 Telas', configuração de template limpo, teoria descomplicada por sentimento e o workshop bônus 'Dominando a Mix' com FabFilter.",
+                desc: "O treinamento definitivo do básico ao avançado no FL Studio. Inclui mentoria de 30 minutos, o método 'As 4 Telas', configuração de template limpo, teoria musical descomplicada por sentimento e o workshop bônus 'Dominando a Mix' com FabFilter.",
                 specs: [
                     "Mentoria inicial de alinhamento (30 min)",
                     "Módulo 'As 4 Telas' + Template oficial de workflow",
@@ -442,7 +444,7 @@
 
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = `
-                <span class="${data.badgeClass} font-mono text-[10px] font-black px-2.5 py-1 rounded-md border inline-block">
+                <span class="${data.badgeClass} font-mono text-[10px] font-black px-2.5 py-1 rounded-md border inline-block uppercase">
                     ${data.badge}
                 </span>
                 <h3 class="text-2xl font-black text-white">${data.title}</h3>
@@ -450,7 +452,7 @@
                 
                 <div class="bg-black/50 p-4 rounded-xl border border-zinc-800 space-y-2">
                     <p class="text-xs font-mono font-bold text-[#FF6600]">ESPECIFICAÇÕES TÉCNICAS:</p>
-                    <ul class="text-xs font-mono text-zinc-400 space-y-1">
+                    <ul class="text-xs font-mono text-zinc-400 space-y-1.5">
                         ${data.specs.map(spec => `<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-[#00FF66]"></i> ${spec}</li>`).join('')}
                     </ul>
                 </div>
@@ -460,7 +462,7 @@
                         <span class="text-[10px] font-mono text-zinc-500 block uppercase">Preço Oficial</span>
                         <span class="text-2xl font-black font-mono text-white">${data.price}</span>
                     </div>
-                    <a href="${data.checkout}" target="_blank" class="px-6 py-3 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-bold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
+                    <a href="${data.checkout}" target="_blank" class="px-6 py-3 rounded-xl bg-[#FF6600] hover:bg-orange-600 font-extrabold text-xs text-black transition-colors font-mono uppercase tracking-wider glow-orange">
                         IR PARA O CHECKOUT &rarr;
                     </a>
                 </div>
@@ -473,7 +475,6 @@
             document.getElementById('product-modal').classList.add('hidden');
         }
 
-        // Auto-abertura de modal por parâmetro de URL (ex: ?prod=ttg ou ?prod=vse)
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const prod = urlParams.get('prod');

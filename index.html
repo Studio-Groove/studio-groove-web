@@ -85,18 +85,6 @@
             background: linear-gradient(135deg, #FF771A 0%, #F05A00 100%);
         }
 
-        .btn-vu-green {
-            background: rgba(0, 255, 102, 0.1);
-            color: #00FF66;
-            border: 1px solid rgba(0, 255, 102, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .btn-vu-green:hover {
-            background: rgba(0, 255, 102, 0.25);
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
-        }
-
         @keyframes waveform { 0%, 100% { height: 4px; } 50% { height: 26px; } }
         .wave-bar { animation: waveform 1.1s infinite ease-in-out; }
         .wave-bar:nth-child(1) { animation-delay: 0.0s; }
@@ -171,6 +159,20 @@
                             A ferramenta exata que você viu em ação na tela do FL Studio.
                         </p>
 
+                        <!-- PLAYER DE ÁUDIO DINÂMICO PARA DESTAQUE -->
+                        <div id="hero-audio-player-container" class="hidden bg-[#07080B] p-4 rounded-2xl border border-[#FF6600]/40 space-y-2">
+                            <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+                                <span class="flex items-center gap-2 text-[#FF6600] font-bold">
+                                    <i class="fa-solid fa-headphones"></i> DEMO OFICIAL DO PACK (OUÇA AGORA)
+                                </span>
+                                <span class="text-[#00FF66] text-[10px] uppercase font-bold">MP3 320KBPS</span>
+                            </div>
+                            <audio id="hero-audio-element" controls class="w-full h-10 accent-[#FF6600]">
+                                <source src="" type="audio/mpeg">
+                                Seu navegador não suporta o player de áudio.
+                            </audio>
+                        </div>
+
                         <div id="hero-benefits" class="space-y-3 font-mono text-xs lg:text-sm text-zinc-300 bg-[#07080B]/50 p-4 rounded-2xl border border-zinc-800/60">
                             <!-- Injetado via JS -->
                         </div>
@@ -190,7 +192,6 @@
                                     <span>QUERO GARANTIR ESTE ATIVO AGORA</span>
                                 </a>
                                 
-                                <!-- SELO DE GARANTIA REAL -->
                                 <div class="flex items-center space-x-2 text-xs font-mono text-zinc-400">
                                     <i class="fa-solid fa-shield-check text-[#00FF66]"></i>
                                     <span>Garantia incondicional de 7 dias (Risco Zero pela Hotmart)</span>
@@ -237,7 +238,6 @@
                     <p class="text-xs text-zinc-400">Explore o catálogo completo de ferramentas, FLPs e treinamentos:</p>
                 </div>
 
-                <!-- CAMPO DE PESQUISA DINÂMICO PARA ESCALAR ATÉ 150+ PROJETOS -->
                 <div class="relative w-full md:w-72">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-zinc-500">
                         <i class="fa-solid fa-magnifying-glass text-xs"></i>
@@ -277,6 +277,18 @@
             
             <div class="space-y-4 text-zinc-300 text-sm leading-relaxed border-t border-zinc-800/80 pt-4">
                 <p id="modal-desc">Descrição persuasiva e orientada a valor do produto.</p>
+
+                <!-- PLAYER DE ÁUDIO NO MODAL -->
+                <div id="modal-audio-player-container" class="hidden bg-[#07080B] p-4 rounded-xl border border-[#FF6600]/30 space-y-2">
+                    <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+                        <span class="text-[#FF6600] font-bold"><i class="fa-solid fa-headphones"></i> DEMO DO PACK (OUÇA O SOM REAL)</span>
+                        <span class="text-[#00FF66] text-[10px]">HQ MP3</span>
+                    </div>
+                    <audio id="modal-audio-element" controls class="w-full h-10 accent-[#FF6600]">
+                        <source src="" type="audio/mpeg">
+                        Seu navegador não suporta áudio.
+                    </audio>
+                </div>
                 
                 <div id="modal-bullets" class="space-y-2.5 font-mono text-xs text-zinc-300 bg-[#07080B] p-4 rounded-xl border border-zinc-800">
                     <!-- Bullets do modal -->
@@ -305,7 +317,7 @@
         <p class="text-zinc-400">Tech House, House & Minimal Deep Tech Production Assets.</p>
     </footer>
 
-    <!-- CATÁLOGO OFICIAL & MOTOR DE BUSCA EM TEMPO REAL -->
+    <!-- CATÁLOGO OFICIAL & PROGRAMAÇÃO JS -->
     <script>
         const products = [
             {
@@ -316,6 +328,7 @@
                 title: "Desafio Destravando Tracks",
                 price: "R$ 97,00",
                 imageUrl: "assets/img/destravando.jpg",
+                audioUrl: "",
                 headline: "Sua pasta está cheia de projetos de 8 compassos? Aprenda o método cirúrgico em 4 fases para eliminar o bloqueio criativo e finalizar tracks em horas.",
                 fullDesc: "O Desafio Destravando Tracks entrega o passo a passo exato para conectar introduções, criar a tensão perfeita no break e entregar um drop estrondoso que prende a atenção da pista do início ao fim.",
                 benefits: [
@@ -334,6 +347,7 @@
                 title: "Dominando FL para E-Music",
                 price: "R$ 297,00",
                 imageUrl: "assets/img/dominando-fl.jpg",
+                audioUrl: "",
                 headline: "A formação definitiva do zero ao nível profissional para você dominar o FL Studio, mixar com clareza e produzir faixas prontas para assinar com gravadoras.",
                 fullDesc: "Abra a caixa preta do FL Studio. Domine síntese, roteamento avançado de mixer, compressão paralela, alinhamento de fase e técnicas de masterização comercial para nunca mais ter músicas com som abafado.",
                 benefits: [
@@ -352,6 +366,7 @@
                 title: "Tools Tech Grooves (TTG) Vol. 1",
                 price: "R$ 67,00",
                 imageUrl: "assets/img/ttg.jpg",
+                audioUrl: "assets/audio/TTG-DEMO FULL.mp3",
                 headline: "Pare de perder horas testando samples fracos. Tenha em mãos os timbres encorpados e validados em pista que dão pressão imediata às suas tracks.",
                 fullDesc: "O TTG Vol. 1 foi construído por quem vive a pista de dança. São kicks pesados com sub-bass alinhado, claps estalados e top loops magnéticos desenvolvidos para arrastar direto para o FL Studio e fazer o som bater de verdade.",
                 benefits: [
@@ -370,6 +385,7 @@
                 title: "Vital Sound Essence (VSE)",
                 price: "R$ 59,00",
                 imageUrl: "assets/img/vse.jpg",
+                audioUrl: "",
                 headline: "Os timbres de sintetizador que definem o som do Tech House moderno no Vital, com automações e macros prontos para modulação.",
                 fullDesc: "Chega de patches sem alma que somem na mixagem. O Vital Sound Essence entrega a densidade sonora dos grandes releases do Beatport direto no seu sintetizador, economizando dias de sound design.",
                 benefits: [
@@ -388,6 +404,7 @@
                 title: "Projeto FL Studio Tech House Drop (Estilo Toolroom)",
                 price: "R$ 47,00",
                 imageUrl: "assets/img/HZCT001.png",
+                audioUrl: "",
                 headline: "O projeto oficial aberto no FL Studio na linha enérgica e marcante da gigante Toolroom.",
                 fullDesc: "Baixe a sessão completa com basslines encorpadas, técnicas de compressão paralela de bateria e a engenharia de som voltada para grandes pistas.",
                 benefits: [
@@ -442,6 +459,7 @@
                 title: "Projeto FL Studio Tech House Drop [HZCT005]",
                 price: "R$ 47,00",
                 imageUrl: "assets/img/HZCT005.png",
+                audioUrl: "",
                 headline: "Projeto profissional de Tech House pronto para análise, engenharia reversa e estudo de mixagem.",
                 fullDesc: "Sessão completa em FL Studio com arranjo de pista, processamento de bateria, sintetizadores e WAV Stems separados.",
                 benefits: [
@@ -452,7 +470,6 @@
                 ],
                 hotmartUrl: "https://go.hotmart.com/W107688253B"
             },
-            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO
             {
                 id: "HZCT004",
                 type: "flp",
@@ -461,6 +478,7 @@
                 title: "Projeto FL Studio Tech House Drop [HZCT004]",
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT004.png",
+                audioUrl: "",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
                 fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
@@ -478,6 +496,7 @@
                 title: "Projeto FL Studio Tech House Drop [HZCT006]",
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT006.png",
+                audioUrl: "",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
                 fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
@@ -495,6 +514,7 @@
                 title: "Projeto FL Studio Tech House Drop [HZCT007]",
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT007.png",
+                audioUrl: "",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
                 fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
@@ -512,6 +532,7 @@
                 title: "Projeto FL Studio Tech House Drop [HZCT008]",
                 price: "EM BREVE",
                 imageUrl: "assets/img/HZCT008.png",
+                audioUrl: "",
                 headline: "Este projeto da linha internacional Hertz Cartel está em processo de importação e validação para o Brasil.",
                 fullDesc: "Ativo vendido originalmente no catálogo internacional (Gumroad). Estamos preparando o lançamento oficial do checkout no Brasil. Fique atento às próximas lives no Studio Groove!",
                 benefits: [
@@ -544,7 +565,6 @@
             currentFeaturedId = featuredProduct.id;
             renderLandingHero(featuredProduct);
             
-            // Se veio parâmetro de busca direto na URL, já aplica no input
             if (searchParam) {
                 document.getElementById('searchInput').value = searchParam;
                 filterCatalog(searchParam);
@@ -560,6 +580,18 @@
             document.getElementById('hero-headline').innerText = product.headline;
             document.getElementById('hero-price').innerText = product.price;
             document.getElementById('hero-image').src = product.imageUrl;
+
+            // GERENCIAMENTO DO PLAYER DE ÁUDIO NO DESTAQUE
+            const heroAudioContainer = document.getElementById('hero-audio-player-container');
+            const heroAudioElement = document.getElementById('hero-audio-element');
+            
+            if (product.audioUrl && product.audioUrl !== "") {
+                heroAudioElement.src = product.audioUrl;
+                heroAudioContainer.classList.remove('hidden');
+            } else {
+                heroAudioContainer.classList.add('hidden');
+                heroAudioElement.pause();
+            }
 
             const statusPill = document.getElementById('hero-status-pill');
             if (product.isLocked) {
@@ -591,13 +623,11 @@
         function filterCatalog(forcedQuery = null) {
             const query = forcedQuery !== null ? forcedQuery : document.getElementById('searchInput').value.toLowerCase().trim();
             
-            // Filtra os produtos com base na busca (título, id, categoria ou descrição)
             const filtered = products.filter(p => {
-                const matchQuery = p.title.toLowerCase().includes(query) ||
-                                   p.id.toLowerCase().includes(query) ||
-                                   p.category.toLowerCase().includes(query) ||
-                                   p.headline.toLowerCase().includes(query);
-                return matchQuery;
+                return p.title.toLowerCase().includes(query) ||
+                       p.id.toLowerCase().includes(query) ||
+                       p.category.toLowerCase().includes(query) ||
+                       p.headline.toLowerCase().includes(query);
             });
 
             renderAuxiliaryCards(filtered);
@@ -618,7 +648,7 @@
             }
 
             listToRender.forEach(product => {
-                if (product.id === currentFeaturedId) return; // Omitir o destaque atual da grade inferior
+                if (product.id === currentFeaturedId) return;
 
                 const card = document.createElement('div');
                 
@@ -674,6 +704,18 @@
             document.getElementById('modal-price').innerText = product.price;
             document.getElementById('modal-desc').innerText = product.fullDesc;
 
+            // GERENCIAMENTO DO PLAYER DE ÁUDIO NO MODAL
+            const modalAudioContainer = document.getElementById('modal-audio-player-container');
+            const modalAudioElement = document.getElementById('modal-audio-element');
+
+            if (product.audioUrl && product.audioUrl !== "") {
+                modalAudioElement.src = product.audioUrl;
+                modalAudioContainer.classList.remove('hidden');
+            } else {
+                modalAudioContainer.classList.add('hidden');
+                modalAudioElement.pause();
+            }
+
             const overlayBadge = document.getElementById('modal-overlay-badge');
             const guaranteeText = document.getElementById('modal-guarantee-text');
             const checkoutBtn = document.getElementById('modal-checkout-btn');
@@ -704,6 +746,8 @@
         }
 
         function closeModal() {
+            const modalAudioElement = document.getElementById('modal-audio-element');
+            if (modalAudioElement) modalAudioElement.pause();
             document.getElementById('product-modal').classList.add('hidden');
         }
 

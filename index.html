@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Groove | FL Studio & Tech House Assets</title>
+
+    <!-- OPEN GRAPH (PRÉ-VISUALIZAÇÃO PROFISSIONAL NO WHATSAPP / REDES SOCIAIS) -->
+    <meta property="meta-title" content="Studio Groove | Ativos Profissionais para FL Studio">
+    <meta property="og:title" content="Studio Groove | FL Studio & Tech House Assets">
+    <meta property="og:description" content="Projetos FL Studio abertos, Samples de alto impacto e Presets validados em pista. Eleve o nível das suas tracks agora.">
+    <meta property="og:image" content="https://studio-groove.vercel.app/assets/img/destravando.jpg">
+    <meta property="og:url" content="https://studio-groove.vercel.app/">
+    <meta property="og:type" content="website">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- FontAwesome -->
@@ -167,16 +176,26 @@
                         </div>
 
                         <div class="pt-2 space-y-4">
-                            <div class="flex items-baseline space-x-3">
-                                <span class="text-xs font-mono text-zinc-400 uppercase">Investimento:</span>
-                                <span id="hero-price" class="text-3xl font-mono font-black text-[#FF6600]">R$ 00,00</span>
+                            <div class="flex flex-wrap items-baseline gap-4">
+                                <div class="flex items-baseline space-x-3">
+                                    <span class="text-xs font-mono text-zinc-400 uppercase">Investimento:</span>
+                                    <span id="hero-price" class="text-3xl font-mono font-black text-[#FF6600]">R$ 00,00</span>
+                                </div>
                                 <span id="hero-status-pill" class="text-xs font-mono text-[#00FF66] bg-[#00FF66]/10 px-2.5 py-1 rounded border border-[#00FF66]/30">Acesso Imediato</span>
                             </div>
 
-                            <a id="hero-btn" href="#" target="_blank" class="btn-fl-primary w-full sm:w-auto px-8 py-4 rounded-2xl flex items-center justify-center space-x-3 text-sm lg:text-base">
-                                <i class="fa-solid fa-bolt text-lg"></i>
-                                <span>QUERO GARANTIR ESTE ATIVO AGORA</span>
-                            </a>
+                            <div class="space-y-3">
+                                <a id="hero-btn" href="#" target="_blank" class="btn-fl-primary w-full sm:w-auto px-8 py-4 rounded-2xl flex items-center justify-center space-x-3 text-sm lg:text-base">
+                                    <i class="fa-solid fa-bolt text-lg"></i>
+                                    <span>QUERO GARANTIR ESTE ATIVO AGORA</span>
+                                </a>
+                                
+                                <!-- SELO DE GARANTIA REAL -->
+                                <div class="flex items-center space-x-2 text-xs font-mono text-zinc-400">
+                                    <i class="fa-solid fa-shield-check text-[#00FF66]"></i>
+                                    <span>Garantia incondicional de 7 dias (Risco Zero pela Hotmart)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -258,14 +277,19 @@
                     <!-- Bullets do modal -->
                 </div>
             </div>
-            <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-end space-x-4">
-                <button onclick="closeModal()" class="px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 text-xs font-mono transition-colors border border-zinc-800">
-                    VOLTAR
-                </button>
-                <a id="modal-checkout-btn" href="#" target="_blank" class="btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2">
-                    <i class="fa-solid fa-lock text-xs"></i>
-                    <span>LIBERAR MEU ACESSO IMEDIATO</span>
-                </a>
+            <div class="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div id="modal-guarantee-text" class="text-[11px] font-mono text-zinc-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-check text-[#00FF66]"></i> 7 Dias de Garantia
+                </div>
+                <div class="flex items-center space-x-3 w-full sm:w-auto justify-end">
+                    <button onclick="closeModal()" class="px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 text-xs font-mono transition-colors border border-zinc-800">
+                        VOLTAR
+                    </button>
+                    <a id="modal-checkout-btn" href="#" target="_blank" class="btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-lock text-xs"></i>
+                        <span>LIBERAR MEU ACESSO IMEDIATO</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -423,7 +447,7 @@
                 ],
                 hotmartUrl: "https://go.hotmart.com/W107688253B"
             },
-            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO DA GERINGA PARA O BRASIL
+            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO DA GRINGA PARA O BRASIL
             {
                 id: "HZCT004",
                 type: "flp",
@@ -624,10 +648,14 @@
             document.getElementById('modal-image').src = product.imageUrl;
 
             const badge = document.getElementById('modal-overlay-badge');
+            const guaranteeText = document.getElementById('modal-guarantee-text');
+
             if (product.isLocked) {
                 badge.classList.remove('hidden');
+                guaranteeText.innerHTML = `<i class="fa-solid fa-clock text-amber-400"></i> Lançamento em breve no ecossistema Brasil`;
             } else {
                 badge.classList.add('hidden');
+                guaranteeText.innerHTML = `<i class="fa-solid fa-shield-check text-[#00FF66]"></i> 7 Dias de Garantia Incondicional`;
             }
 
             const modalBullets = document.getElementById('modal-bullets');
@@ -646,9 +674,9 @@
             
             if (product.isLocked) {
                 btn.className = "bg-amber-600 hover:bg-amber-500 text-white font-bold px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2";
-                btn.innerHTML = `<i class="fa-brands fa-youtube text-sm"></i><span>ACOMPANHAR NO YOUTUBE (LIBERAÇÃO EM BREVE)</span>`;
+                btn.innerHTML = `<i class="fa-brands fa-youtube text-sm"></i><span>ACOMPANHAR NO YOUTUBE</span>`;
             } else {
-                btn.className = "btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2";
+                btn.className = "btn-fl-primary px6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2";
                 btn.innerHTML = `<i class="fa-solid fa-lock text-xs"></i><span>LIBERAR MEU ACESSO IMEDIATO</span>`;
             }
 

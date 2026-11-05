@@ -226,19 +226,24 @@
             </div>
         </section>
 
-        <!-- PRATELEIRA AUXILIAR (CATÁLOGO) -->
+        <!-- PRATELEIRA AUXILIAR & BARRA DE PESQUISA INTELIGENTE -->
         <section id="produtos-grid" class="space-y-6">
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-zinc-800/80 pb-4 gap-2">
+            <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-zinc-800/80 pb-6 gap-4">
                 <div>
                     <h2 class="text-xl font-bold text-white flex items-center space-x-2">
                         <i class="fa-solid fa-layer-group text-[#FF6600]"></i>
                         <span>Precisa destravar outra etapa da sua produção?</span>
                     </h2>
-                    <p class="text-xs text-zinc-400">Explore o catálogo completo de ferramentas, FLPs das lives e treinamentos:</p>
+                    <p class="text-xs text-zinc-400">Explore o catálogo completo de ferramentas, FLPs e treinamentos:</p>
                 </div>
-                <span class="text-xs font-mono text-[#FF6600] flex items-center gap-1.5">
-                    <i class="fa-solid fa-arrow-pointer"></i> Clique nos cards para ver detalhes e especificações
-                </span>
+
+                <!-- CAMPO DE PESQUISA DINÂMICO PARA ESCALAR ATÉ 150+ PROJETOS -->
+                <div class="relative w-full md:w-72">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-zinc-500">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterCatalog()" placeholder="Pesquisar (ex: HZCT002, TTG...)" class="w-full bg-[#0E1017] text-xs font-mono text-white placeholder-zinc-500 pl-10 pr-4 py-3 rounded-xl border border-zinc-800 focus:outline-none focus:border-[#FF6600] transition-colors shadow-inner">
+                </div>
             </div>
 
             <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -300,7 +305,7 @@
         <p class="text-zinc-400">Tech House, House & Minimal Deep Tech Production Assets.</p>
     </footer>
 
-    <!-- CATÁLOGO OFICIAL & SCRIPT DE ROTEAMENTO -->
+    <!-- CATÁLOGO OFICIAL & MOTOR DE BUSCA EM TEMPO REAL -->
     <script>
         const products = [
             {
@@ -447,7 +452,7 @@
                 ],
                 hotmartUrl: "https://go.hotmart.com/W107688253B"
             },
-            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO DA GRINGA PARA O BRASIL (CANAL STUDIO GROOVE ATUALIZADO)
+            // PRODUTOS TRAVADOS / EM FASE DE IMPORTAÇÃO
             {
                 id: "HZCT004",
                 type: "flp",
@@ -518,23 +523,34 @@
             }
         ];
 
+        let currentFeaturedId = products[0].id;
+
         function initApp() {
             const urlParams = new URLSearchParams(window.location.search);
             const flpParam = urlParams.get('flp');
             const prodParam = urlParams.get('prod');
+            const searchParam = urlParams.get('search');
 
             let featuredProduct = products[0];
 
             if (flpParam) {
-                const found = products.find(p => p.type === 'flp' && p.id === flpParam);
+                const found = products.find(p => p.type === 'flp' && p.id.toLowerCase() === flpParam.toLowerCase());
                 if (found) featuredProduct = found;
             } else if (prodParam) {
-                const found = products.find(p => p.id === prodParam);
+                const found = products.find(p => p.id.toLowerCase() === prodParam.toLowerCase());
                 if (found) featuredProduct = found;
             }
 
+            currentFeaturedId = featuredProduct.id;
             renderLandingHero(featuredProduct);
-            renderAuxiliaryCards(featuredProduct.id);
+            
+            // Se veio parâmetro de busca direto na URL, já aplica no input
+            if (searchParam) {
+                document.getElementById('searchInput').value = searchParam;
+                filterCatalog(searchParam);
+            } else {
+                renderAuxiliaryCards(products);
+            }
         }
 
         function renderLandingHero(product) {
@@ -572,12 +588,37 @@
             }
         }
 
-        function renderAuxiliaryCards(currentId) {
+        function filterCatalog(forcedQuery = null) {
+            const query = forcedQuery !== null ? forcedQuery : document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            // Filtra os produtos com base na busca (título, id, categoria ou descrição)
+            const filtered = products.filter(p => {
+                const matchQuery = p.title.toLowerCase().includes(query) ||
+                                   p.id.toLowerCase().includes(query) ||
+                                   p.category.toLowerCase().includes(query) ||
+                                   p.headline.toLowerCase().includes(query);
+                return matchQuery;
+            });
+
+            renderAuxiliaryCards(filtered);
+        }
+
+        function renderAuxiliaryCards(listToRender) {
             const container = document.getElementById('cards-container');
             container.innerHTML = "";
 
-            products.forEach(product => {
-                if (product.id === currentId) return;
+            if (listToRender.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-zinc-500 font-mono text-xs">
+                        <i class="fa-solid fa-circle-exclamation text-base mb-2 block text-[#FF6600]"></i>
+                        Nenhum ativo encontrado com esse termo. Tente buscar por "HZCT", "TTG" ou "Destravando".
+                    </div>
+                `;
+                return;
+            }
+
+            listToRender.forEach(product => {
+                if (product.id === currentFeaturedId) return; // Omitir o destaque atual da grade inferior
 
                 const card = document.createElement('div');
                 

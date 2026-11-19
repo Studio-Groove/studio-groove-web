@@ -245,7 +245,7 @@
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-zinc-500">
                         <i class="fa-solid fa-magnifying-glass text-xs"></i>
                     </span>
-                    <input type="text" id="searchInput" oninput="filterCatalog()" placeholder="Pesquisar (ex: HZCT008, TTG...)" class="w-full bg-[#0E1017] text-xs font-mono text-white placeholder-zinc-500 pl-10 pr-4 py-3 rounded-xl border border-zinc-800 focus:outline-none focus:border-[#FF6600] transition-colors shadow-inner">
+                    <input type="text" id="searchInput" oninput="filterCatalog()" placeholder="Pesquisar (ex: AURA-X, HZCT008...)" class="w-full bg-[#0E1017] text-xs font-mono text-white placeholder-zinc-500 pl-10 pr-4 py-3 rounded-xl border border-zinc-800 focus:outline-none focus:border-[#FF6600] transition-colors shadow-inner">
                 </div>
             </div>
 
@@ -403,6 +403,25 @@
     <!-- CATÁLOGO OFICIAL & PROGRAMAÇÃO JS -->
     <script>
         const products = [
+            {
+                id: 'aurax',
+                type: 'prod',
+                isLocked: false,
+                category: 'Gerador MIDI VST3 • Melodias & Hooks',
+                title: 'AURA-X // MIDI Idea Engine (Melodias & Hooks)',
+                price: 'R$ 67,00',
+                imageUrl: 'assets/img/AURA-X_capa.jpg',
+                audioUrl: '',
+                headline: 'Hooks, melodias e stabs prontos para a pista em segundos. Gere, evolua, trave notas e arraste o MIDI direto para a sua DAW.',
+                fullDesc: 'O AURA-X é um motor gerativo de ideias MIDI focado em melodias, hooks, stabs e camadas harmônicas para Tech House e outros estilos alvo. Escolha tom, escala, densidade e swing, use os modos Random, Evolve ou Humanize, trave notas com Stabilize e arraste o MIDI direto para o seu sintetizador.',
+                benefits: [
+                    'Foco em melodias, hooks, stabs e variações harmônicas',
+                    'Modos Random, Evolve e Humanize + Specimen Log (12 slots)',
+                    'Trava de notas (Stabilize) e camadas rápidas com Octave',
+                    'Arraste MIDI direto para FL Studio / DAW • Acesso imediato'
+                ],
+                hotmartUrl: 'https://pay.hotmart.com/U108580832G'
+            },
             {
                 id: 'madbass',
                 type: 'prod',
@@ -678,7 +697,6 @@
                 renderAuxiliaryCards(products);
             }
 
-            // SUPORTE A PARÂMETROS DINÂMICOS PARA OS SERVIÇOS DE ELITE (Mix, Mentoria, Ghost)
             if (serviceParam) {
                 setTimeout(() => {
                     const targetCard = document.getElementById(`card-service-${serviceParam.toLowerCase()}`);
@@ -701,7 +719,6 @@
             document.getElementById('hero-price').innerText = product.price;
             document.getElementById('hero-image').src = product.imageUrl;
 
-            // GERENCIAMENTO DO PLAYER DE ÁUDIO NO DESTAQUE
             const heroAudioContainer = document.getElementById('hero-audio-player-container');
             const heroAudioElement = document.getElementById('hero-audio-element');
             
@@ -761,7 +778,7 @@
                 container.innerHTML = `
                     <div class="col-span-full py-12 text-center text-zinc-500 font-mono text-xs">
                         <i class="fa-solid fa-circle-exclamation text-base mb-2 block text-[#FF6600]"></i>
-                        Nenhum ativo encontrado com esse termo. Tente buscar por HZCT, TTG ou Destravando.
+                        Nenhum ativo encontrado com esse termo. Tente buscar por AURA-X, HZCT ou TTG.
                     </div>
                 `;
                 return;
@@ -824,7 +841,6 @@
             document.getElementById('modal-price').innerText = product.price;
             document.getElementById('modal-desc').innerText = product.fullDesc;
 
-            // GERENCIAMENTO DO PLAYER DE ÁUDIO NO MODAL
             const modalAudioContainer = document.getElementById('modal-audio-player-container');
             const modalAudioElement = document.getElementById('modal-audio-element');
 

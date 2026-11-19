@@ -418,9 +418,9 @@
                     'Foco em melodias, hooks, stabs e variações harmônicas',
                     'Modos Random, Evolve e Humanize + Specimen Log (12 slots)',
                     'Trava de notas (Stabilize) e camadas rápidas com Octave',
-                    'Arraste MIDI direto para FL Studio / DAW • Acesso imediato'
+                    'Arraste MIDI direto para FL Studio / DAW • Página oficial do AURA-X'
                 ],
-                hotmartUrl: 'https://pay.hotmart.com/U108580832G'
+                hotmartUrl: 'https://uxfpwl.s.gy/Aura-x'
             },
             {
                 id: 'madbass',
@@ -752,6 +752,8 @@
             heroBtn.href = product.hotmartUrl;
             if (product.isLocked) {
                 heroBtn.innerHTML = `<i class="fa-brands fa-youtube text-lg"></i> <span>QUERO SER AVISADO DO LANÇAMENTO</span>`;
+            } else if (product.id === 'aurax') {
+                heroBtn.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square text-lg"></i> <span>CONHECER O AURA-X AGORA</span>`;
             } else {
                 heroBtn.innerHTML = `<i class="fa-solid fa-bolt text-lg"></i> <span>QUERO GARANTIR ESTE ATIVO AGORA</span>`;
             }
@@ -862,6 +864,12 @@
                 checkoutBtn.href = product.hotmartUrl;
                 checkoutBtn.className = 'btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2 bg-gradient-to-r from-red-600 to-red-700';
                 checkoutBtn.innerHTML = `<i class="fa-brands fa-youtube text-xs"></i> <span>AVISAR NO CANAL DO YOUTUBE</span>`;
+            } else if (product.id === 'aurax') {
+                overlayBadge.classList.add('hidden');
+                guaranteeText.innerHTML = `<i class="fa-solid fa-globe text-[#00FF66]"></i> Página oficial do AURA-X`;
+                checkoutBtn.href = product.hotmartUrl;
+                checkoutBtn.className = 'btn-fl-primary px-6 py-3 rounded-xl text-xs transition-all flex items-center space-x-2';
+                checkoutBtn.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> <span>IR PARA PÁGINA DO AURA-X</span>`;
             } else {
                 overlayBadge.classList.add('hidden');
                 guaranteeText.innerHTML = `<i class="fa-solid fa-shield-check text-[#00FF66]"></i> 7 Dias de Garantia Incondicional (Hotmart)`;
